@@ -161,9 +161,10 @@ class PriceRangeFilter {
         this.activeRange.style.left = `${minPercentage}%`;
         this.activeRange.style.width = `${maxPercentage - minPercentage}%`;
         
-        // Update display values
-        const fromDisplay = this.element.querySelector('.price-range-from-value');
-        const toDisplay = this.element.querySelector('.price-range-to-value');
+        // Update display values (search from the outer container)
+        const root = this.element.closest('.price-range-filter-container') || this.element;
+        const fromDisplay = root.querySelector('.price-range-from-value');
+        const toDisplay = root.querySelector('.price-range-to-value');
         
         if (fromDisplay) {
             fromDisplay.textContent = this.minValue;
@@ -173,8 +174,8 @@ class PriceRangeFilter {
         }
         
         // Update hidden inputs
-        const minInput = this.element.querySelector('input[name*="min"]');
-        const maxInput = this.element.querySelector('input[name*="max"]');
+        const minInput = root.querySelector('input[name*="min"]');
+        const maxInput = root.querySelector('input[name*="max"]');
         
         if (minInput) {
             minInput.value = this.minValue;
