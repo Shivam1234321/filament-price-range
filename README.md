@@ -19,7 +19,7 @@ A custom Laravel Filament plugin that provides a beautiful dual-handle range sli
 ### 1. Install via Composer
 
 ```bash
-composer require price-range/price-range-filter
+composer require price-range/price-range-filter:dev-master
 ```
 
 ### 2. Publish Assets

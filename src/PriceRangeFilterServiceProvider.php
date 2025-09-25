@@ -12,29 +12,29 @@ class PriceRangeFilterServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/price-range-filter.php',
+            __DIR__ . '/config/price-range-filter.php',
             'price-range-filter'
         );
     }
 
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'price-range-filter');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'price-range-filter');
         
         $this->publishes([
-            __DIR__ . '/../config/price-range-filter.php' => config_path('price-range-filter.php'),
+            __DIR__ . '/config/price-range-filter.php' => config_path('price-range-filter.php'),
         ], 'price-range-filter-config');
 
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/price-range-filter'),
+            __DIR__ . '/resources/views' => resource_path('views/vendor/price-range-filter'),
         ], 'price-range-filter-views');
 
         $this->publishes([
-            __DIR__ . '/../resources/js' => public_path('vendor/price-range-filter/js'),
+            __DIR__ . '/resources/js' => public_path('vendor/price-range-filter/js'),
         ], 'price-range-filter-assets');
 
         $this->publishes([
-            __DIR__ . '/../resources/css' => public_path('vendor/price-range-filter/css'),
+            __DIR__ . '/resources/css' => public_path('vendor/price-range-filter/css'),
         ], 'price-range-filter-assets');
 
         // Register the form component

@@ -21,7 +21,7 @@ if ! command -v composer &> /dev/null; then
 fi
 
 echo "📦 Installing plugin via Composer..."
-composer require price-range/price-range-filter
+composer require price-range/price-range-filter:dev-master
 
 echo "📁 Publishing configuration..."
 php artisan vendor:publish --tag=price-range-filter-config
