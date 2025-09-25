@@ -1,0 +1,163 @@
+/* Price Range Filter Styles */
+.price-range-filter-container {
+    @apply w-full;
+}
+
+.price-range-display {
+    @apply flex justify-between items-center mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg;
+}
+
+.price-range-value-group {
+    @apply flex flex-col items-center;
+}
+
+.price-range-value {
+    @apply text-2xl font-bold text-gray-900 dark:text-white;
+}
+
+.price-range-label {
+    @apply text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide;
+}
+
+.price-range-slider-container {
+    @apply relative w-full h-8;
+}
+
+.price-range-track {
+    @apply relative w-full h-2 bg-gray-300 dark:bg-gray-600 rounded-full cursor-pointer;
+}
+
+.price-range-active {
+    @apply absolute h-2 bg-blue-500 dark:bg-blue-400 rounded-full;
+    top: 0;
+    transition: all 0.2s ease;
+}
+
+.price-range-handle {
+    @apply absolute w-6 h-6 bg-white dark:bg-gray-200 border-2 border-blue-500 dark:border-blue-400 rounded-full cursor-pointer shadow-lg;
+    top: -8px;
+    transform: translateX(-50%);
+    transition: all 0.2s ease;
+    z-index: 2;
+}
+
+.price-range-handle:hover {
+    @apply shadow-xl scale-110;
+}
+
+.price-range-handle.active {
+    @apply shadow-xl scale-110;
+}
+
+.price-range-handle-min {
+    @apply border-blue-500 dark:border-blue-400;
+}
+
+.price-range-handle-max {
+    @apply border-blue-500 dark:border-blue-400;
+}
+
+/* Dark mode adjustments */
+.dark .price-range-display {
+    @apply bg-gray-800;
+}
+
+.dark .price-range-track {
+    @apply bg-gray-600;
+}
+
+.dark .price-range-handle {
+    @apply bg-gray-200;
+}
+
+/* Focus states for accessibility */
+.price-range-handle:focus {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Animation for smooth transitions */
+.price-range-handle {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.price-range-active {
+    transition: left 0.2s ease, width 0.2s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .price-range-display {
+        @apply p-3;
+    }
+    
+    .price-range-value {
+        @apply text-xl;
+    }
+    
+    .price-range-handle {
+        @apply w-8 h-8;
+        top: -10px;
+    }
+}
+
+/* Custom color variants */
+.price-range-filter-container.variant-green .price-range-active {
+    @apply bg-green-500;
+}
+
+.price-range-filter-container.variant-green .price-range-handle {
+    @apply border-green-500;
+}
+
+.price-range-filter-container.variant-red .price-range-active {
+    @apply bg-red-500;
+}
+
+.price-range-filter-container.variant-red .price-range-handle {
+    @apply border-red-500;
+}
+
+.price-range-filter-container.variant-purple .price-range-active {
+    @apply bg-purple-500;
+}
+
+.price-range-filter-container.variant-purple .price-range-handle {
+    @apply border-purple-500;
+}
+
+/* Disabled state */
+.price-range-filter-container.disabled .price-range-track {
+    @apply cursor-not-allowed opacity-50;
+}
+
+.price-range-filter-container.disabled .price-range-handle {
+    @apply cursor-not-allowed;
+}
+
+.price-range-filter-container.disabled .price-range-handle:hover {
+    @apply shadow-lg scale-100;
+}
+
+/* Loading state */
+.price-range-filter-container.loading {
+    @apply opacity-50 pointer-events-none;
+}
+
+.price-range-filter-container.loading::after {
+    content: '';
+    @apply absolute inset-0 bg-white bg-opacity-50 rounded-lg;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Ccircle class='opacity-25' cx='12' cy='12' r='10' stroke='currentColor' stroke-width='4'%3E%3C/circle%3E%3Cpath class='opacity-75' fill='currentColor' d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

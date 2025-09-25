@@ -1,0 +1,31 @@
+{
+    "name": "filament/price-range-filter",
+    "description": "A custom Laravel Filament plugin for price range filtering with dual-handle slider",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shivam Team",
+            "email": "shivamsahujnp123@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "livewire/livewire": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Filament\\PriceRangeFilter\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Filament\\PriceRangeFilter\\PriceRangeFilterServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
