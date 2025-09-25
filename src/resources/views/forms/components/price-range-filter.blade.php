@@ -25,11 +25,16 @@
                         fromLabel: fromLabel,
                         toLabel: toLabel
                     });
-                    // Sync UI → Livewire
+                    // Sync UI → Alpine/Livewire
                     root.addEventListener('priceRangeChange', (e) => {
                         minValue = e.detail.min;
                         maxValue = e.detail.max;
-                        $wire.$set('{{ $getStatePath() }}', { min: minValue, max: maxValue });
+                        // Ensure the display updates
+                        root.querySelector('.price-range-from-value')?.innerText = minValue;
+                        root.querySelector('.price-range-to-value')?.innerText = maxValue;
+                        if ($wire && typeof $wire.$set === 'function') {
+                            $wire.$set('{{ $getStatePath() }}', { min: minValue, max: maxValue });
+                        }
                     });
                 }
                 // Ensure Livewire state is initialized

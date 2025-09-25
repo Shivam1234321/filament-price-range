@@ -186,6 +186,7 @@ class PriceRangeFilter {
 
     dispatchChangeEvent() {
         const event = new CustomEvent('priceRangeChange', {
+            bubbles: true,
             detail: {
                 min: this.minValue,
                 max: this.maxValue
