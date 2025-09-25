@@ -30,11 +30,11 @@ class PriceRangeFilterServiceProvider extends ServiceProvider
         ], 'price-range-filter-views');
 
         $this->publishes([
-            __DIR__ . '/resources/js' => public_path('vendor/price-range-filter/js'),
+            dirname(__DIR__) . '/resources/js' => public_path('vendor/price-range-filter/js'),
         ], 'price-range-filter-assets');
 
         $this->publishes([
-            __DIR__ . '/resources/css' => public_path('vendor/price-range-filter/css'),
+            dirname(__DIR__) . '/resources/css' => public_path('vendor/price-range-filter/css'),
         ], 'price-range-filter-assets');
 
         // Register the form component
