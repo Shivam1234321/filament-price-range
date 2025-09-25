@@ -6,7 +6,7 @@ Get up and running with PriceRangeFilter in 5 minutes!
 
 ```bash
 # Install via Composer
-composer require filament/price-range-filter
+composer require price-range/price-range-filter
 
 # Publish assets
 php artisan vendor:publish --tag=price-range-filter-assets
@@ -88,7 +88,7 @@ namespace App\Filament\Resources\ProductResource\Pages;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\PriceRangeFilter\Forms\Components\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Forms\Components\PriceRangeFilter;
 
 class CreateProduct extends CreateRecord
 {
@@ -121,7 +121,7 @@ namespace App\Filament\Resources;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\PriceRangeFilter\Tables\Filters\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Tables\Filters\PriceRangeFilter;
 
 class ProductResource extends Resource
 {

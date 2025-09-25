@@ -1,9 +1,9 @@
 <?php
 
-namespace Filament\PriceRangeFilter;
+namespace PriceRange\PriceRangeFilter;
 
-use Filament\PriceRangeFilter\Forms\Components\PriceRangeFilter as PriceRangeFilterComponent;
-use Filament\PriceRangeFilter\Tables\Filters\PriceRangeFilter as PriceRangeFilterTable;
+use PriceRange\PriceRangeFilter\Forms\Components\PriceRangeFilter as PriceRangeFilterComponent;
+use PriceRange\PriceRangeFilter\Tables\Filters\PriceRangeFilter as PriceRangeFilterTable;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 

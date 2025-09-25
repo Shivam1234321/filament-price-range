@@ -1,5 +1,5 @@
 {
-    "name": "filament/price-range-filter",
+    "name": "price-range/price-range-filter",
     "description": "A custom Laravel Filament plugin for price range filtering with dual-handle slider",
     "type": "library",
     "license": "MIT",
@@ -16,13 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Filament\\PriceRangeFilter\\": "src/"
+            "PriceRange\\PriceRangeFilter\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Filament\\PriceRangeFilter\\PriceRangeFilterServiceProvider"
+                "PriceRange\\PriceRangeFilter\\PriceRangeFilterServiceProvider"
             ]
         }
     },

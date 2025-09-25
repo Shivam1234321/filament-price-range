@@ -1,6 +1,6 @@
 <?php
 
-namespace Filament\PriceRangeFilter\Forms\Components;
+namespace PriceRange\PriceRangeFilter\Forms\Components;
 
 use Filament\Forms\Components\Field;
 use Filament\Forms\Get;

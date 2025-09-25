@@ -22,7 +22,7 @@ namespace App\Filament\Resources\ProductResource\Pages;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\PriceRangeFilter\Forms\Components\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Forms\Components\PriceRangeFilter;
 
 class CreateProduct extends CreateRecord
 {
@@ -54,7 +54,7 @@ namespace App\Filament\Resources\ProductResource\Pages;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\PriceRangeFilter\Forms\Components\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Forms\Components\PriceRangeFilter;
 
 class EditProduct extends EditRecord
 {
@@ -102,7 +102,7 @@ namespace App\Filament\Resources\PropertyResource\Pages;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\PriceRangeFilter\Forms\Components\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Forms\Components\PriceRangeFilter;
 
 class CreateProperty extends CreateRecord
 {
@@ -164,7 +164,7 @@ namespace App\Filament\Resources\JobResource\Pages;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\PriceRangeFilter\Forms\Components\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Forms\Components\PriceRangeFilter;
 
 class CreateJob extends CreateRecord
 {
@@ -223,7 +223,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\PriceRangeFilter\Tables\Filters\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Tables\Filters\PriceRangeFilter;
 
 class ProductResource extends Resource
 {
@@ -282,7 +282,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\PriceRangeFilter\Tables\Filters\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Tables\Filters\PriceRangeFilter;
 
 class PropertyResource extends Resource
 {

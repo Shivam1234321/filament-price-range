@@ -19,7 +19,7 @@ A custom Laravel Filament plugin that provides a beautiful dual-handle range sli
 ### 1. Install via Composer
 
 ```bash
-composer require filament/price-range-filter
+composer require price-range/price-range-filter
 ```
 
 ### 2. Publish Assets
@@ -83,7 +83,7 @@ return [
 ### In Filament Forms
 
 ```php
-use Filament\PriceRangeFilter\Forms\Components\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Forms\Components\PriceRangeFilter;
 
 // Basic usage
 PriceRangeFilter::make('price_range')
@@ -106,7 +106,7 @@ PriceRangeFilter::make('price_range')
 ### In Filament Tables (as Filter)
 
 ```php
-use Filament\PriceRangeFilter\Tables\Filters\PriceRangeFilter;
+use PriceRange\PriceRangeFilter\Tables\Filters\PriceRangeFilter;
 
 // Basic usage
 PriceRangeFilter::make('price_range')

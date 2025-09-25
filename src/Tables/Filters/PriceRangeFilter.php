@@ -1,6 +1,6 @@
 <?php
 
-namespace Filament\PriceRangeFilter\Tables\Filters;
+namespace PriceRange\PriceRangeFilter\Tables\Filters;
 
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\TextInput;
