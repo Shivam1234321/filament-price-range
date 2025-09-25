@@ -47,11 +47,11 @@
         @if($getShowLabels())
         <div class="price-range-display">
             <div class="price-range-value-group">
-                <div class="price-range-value" x-text="minValue"></div>
+                <div class="price-range-value" x-text="typeof minValue !== 'undefined' ? minValue : 0"></div>
                 <div class="price-range-label">{{ $getFromLabel() }}</div>
             </div>
             <div class="price-range-value-group">
-                <div class="price-range-value" x-text="maxValue"></div>
+                <div class="price-range-value" x-text="typeof maxValue !== 'undefined' ? maxValue : 0"></div>
                 <div class="price-range-label">{{ $getToLabel() }}</div>
             </div>
         </div>
@@ -60,7 +60,7 @@
         <div class="price-range-slider-container"></div>
 
         <!-- Keep hidden inputs in sync (for non-Livewire form posts) -->
-        <input type="hidden" name="{{ $getMinFieldName() }}" :value="minValue">
-        <input type="hidden" name="{{ $getMaxFieldName() }}" :value="maxValue">
+        <input type="hidden" name="{{ $getMinFieldName() }}" :value="typeof minValue !== 'undefined' ? minValue : 0">
+        <input type="hidden" name="{{ $getMaxFieldName() }}" :value="typeof maxValue !== 'undefined' ? maxValue : 0">
     </div>
 </x-dynamic-component>
