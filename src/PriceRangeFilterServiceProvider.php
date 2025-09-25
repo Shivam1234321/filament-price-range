@@ -5,6 +5,9 @@ namespace PriceRange\PriceRangeFilter;
 use PriceRange\PriceRangeFilter\Forms\Components\PriceRangeFilter as PriceRangeFilterComponent;
 use PriceRange\PriceRangeFilter\Tables\Filters\PriceRangeFilter as PriceRangeFilterTable;
 use Illuminate\Support\ServiceProvider;
+use Filament\Support\Facades\FilamentAsset;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
 use Livewire\Livewire;
 
 class PriceRangeFilterServiceProvider extends ServiceProvider
@@ -21,6 +24,12 @@ class PriceRangeFilterServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'price-range-filter');
         
+        // Auto-register assets with Filament so the slider styles & script load in the panel
+        FilamentAsset::register([
+            Css::make('price-range-filter-styles', dirname(__DIR__) . '/resources/css/price-range-filter.css'),
+            Js::make('price-range-filter-script', dirname(__DIR__) . '/resources/js/price-range-filter.js'),
+        ], 'price-range/price-range-filter');
+
         $this->publishes([
             __DIR__ . '/config/price-range-filter.php' => config_path('price-range-filter.php'),
         ], 'price-range-filter-config');
