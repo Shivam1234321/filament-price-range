@@ -52,11 +52,11 @@
         @if($getShowLabels())
         <div class="price-range-display">
             <div class="price-range-value-group">
-                <div class="price-range-value" x-text="typeof minValue !== 'undefined' ? minValue : 0"></div>
+                <div class="price-range-value price-range-from-value" x-text="typeof minValue !== 'undefined' ? minValue : 0"></div>
                 <div class="price-range-label">{{ $getFromLabel() }}</div>
             </div>
             <div class="price-range-value-group">
-                <div class="price-range-value" x-text="typeof maxValue !== 'undefined' ? maxValue : 0"></div>
+                <div class="price-range-value price-range-to-value" x-text="typeof maxValue !== 'undefined' ? maxValue : 0"></div>
                 <div class="price-range-label">{{ $getToLabel() }}</div>
             </div>
         </div>
