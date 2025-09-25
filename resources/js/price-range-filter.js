@@ -142,11 +142,13 @@ class PriceRangeFilter {
     setMinValue(value) {
         this.minValue = Math.max(this.options.min, Math.min(value, this.maxValue));
         this.updateDisplay();
+        this.dispatchChangeEvent();
     }
 
     setMaxValue(value) {
         this.maxValue = Math.max(this.minValue, Math.min(value, this.options.max));
         this.updateDisplay();
+        this.dispatchChangeEvent();
     }
 
     updateDisplay() {
