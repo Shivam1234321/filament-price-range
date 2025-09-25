@@ -130,7 +130,7 @@ The plugin supports two storage methods:
 
 ### 1. JSON Storage (Default)
 
-Store both values in a single JSON column:
+Store both values in a single JSON column:-
 
 ```php
 // Migration
