@@ -1,4 +1,4 @@
-# PriceRangeFilter - Laravel Filament Plugin
+# PriceRangeFilter - Laravel Filament Plugin - Update
 
 A custom Laravel Filament plugin that provides a beautiful dual-handle range slider for price filtering in forms and tables.
 
