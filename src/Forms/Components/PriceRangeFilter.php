@@ -143,21 +143,12 @@ class PriceRangeFilter extends Field
     {
         parent::setUp();
 
-        $this->afterStateHydrated(function (PriceRangeFilter $component, $state) {
-            if (is_null($state)) {
-                $component->state([
-                    'min' => $component->getMinValue(),
-                    'max' => $component->getMaxValue(),
-                ]);
-                return;
-            }
-
-            if (is_string($state)) {
-                $decoded = json_decode($state, true);
-                if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                    $component->state($decoded);
-                }
-            }
+        // Provide a safe default state; avoids undefined keys when first rendering
+        $this->default(function (): array {
+            return [
+                'min' => $this->getMinValue(),
+                'max' => $this->getMaxValue(),
+            ];
         });
 
         $this->dehydrateStateUsing(function ($state) {
