@@ -149,22 +149,20 @@ class PriceRangeFilter extends Field
                     'min' => $component->getMinValue(),
                     'max' => $component->getMaxValue(),
                 ]);
+                return;
+            }
+
+            if (is_string($state)) {
+                $decoded = json_decode($state, true);
+                if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                    $component->state($decoded);
+                }
             }
         });
 
         $this->dehydrateStateUsing(function ($state) {
             if (is_array($state)) {
                 return json_encode($state);
-            }
-            return $state;
-        });
-
-        $this->hydrateStateUsing(function ($state) {
-            if (is_string($state)) {
-                $decoded = json_decode($state, true);
-                if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                    return $decoded;
-                }
             }
             return $state;
         });
