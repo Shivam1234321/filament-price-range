@@ -3,28 +3,37 @@
     :field="$field"
 >
     <div
-        x-data="{
-            minValue: @entangle($getStatePath() . '.min'),
-            maxValue: @entangle($getStatePath() . '.max'),
+        x-data="() => ({
+            minValue: {{ (int) data_get($getState(), 'min', $getMinValue()) }},
+            maxValue: {{ (int) data_get($getState(), 'max', $getMaxValue()) }},
             min: {{ $getMinValue() }},
             max: {{ $getMaxValue() }},
             step: {{ $getStep() }},
             fromLabel: '{{ $getFromLabel() }}',
             toLabel: '{{ $getToLabel() }}',
             showLabels: {{ $getShowLabels() ? 'true' : 'false' }}
-        }"
+        })"
         x-init="
             $nextTick(() => {
-                const element = $el.querySelector('[data-price-range-filter]');
+                const root = $el;
+                const element = root.querySelector('[data-price-range-filter]');
                 if (element) {
-                    new PriceRangeFilter(element, {
+                    const instance = new PriceRangeFilter(element, {
                         min: min,
                         max: max,
                         step: step,
                         fromLabel: fromLabel,
                         toLabel: toLabel
                     });
+                    // Sync UI → Livewire
+                    root.addEventListener('priceRangeChange', (e) => {
+                        minValue = e.detail.min;
+                        maxValue = e.detail.max;
+                        $wire.$set('{{ $getStatePath() }}', { min: minValue, max: maxValue });
+                    });
                 }
+                // Ensure Livewire state is initialized
+                $wire.$set('{{ $getStatePath() }}', { min: minValue, max: maxValue });
             })
         "
         class="price-range-filter-container"
@@ -50,8 +59,8 @@
 
         <div class="price-range-slider-container"></div>
 
-        <!-- Hidden inputs for form submission -->
-        <input type="hidden" name="{{ $getMinFieldName() }}" x-model="minValue">
-        <input type="hidden" name="{{ $getMaxFieldName() }}" x-model="maxValue">
+        <!-- Keep hidden inputs in sync (for non-Livewire form posts) -->
+        <input type="hidden" name="{{ $getMinFieldName() }}" :value="minValue">
+        <input type="hidden" name="{{ $getMaxFieldName() }}" :value="maxValue">
     </div>
 </x-dynamic-component>
