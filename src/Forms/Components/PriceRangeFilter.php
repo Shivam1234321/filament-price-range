@@ -137,32 +137,7 @@ class PriceRangeFilter extends Field
         ];
     }
 
-    public function dehydrateStateUsing(?callable $callback): static
-    {
-        $this->dehydrateStateUsing = $callback ?? function ($state) {
-            if (is_array($state)) {
-                return json_encode($state);
-            }
-            return $state;
-        };
-
-        return $this;
-    }
-
-    public function hydrateStateUsing(?callable $callback): static
-    {
-        $this->hydrateStateUsing = $callback ?? function ($state) {
-            if (is_string($state)) {
-                $decoded = json_decode($state, true);
-                if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                    return $decoded;
-                }
-            }
-            return $state;
-        };
-
-        return $this;
-    }
+    // Use the built-in configuration methods provided by the parent class.
 
     protected function setUp(): void
     {
